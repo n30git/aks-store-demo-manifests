@@ -10,4 +10,4 @@ spec:
     branch: istio
   secretRef:
     name: aks-store-demo
-  url: https://github.com/pauldotyu/aks-store-demo-manifests
+  url: https://github.com/n30git/aks-store-demo-manifests

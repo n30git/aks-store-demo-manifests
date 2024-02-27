@@ -11,7 +11,7 @@ spec:
     branch: istio
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/pauldotyu/aks-store-demo-manifests
+  url: ssh://git@github.com/n30git/aks-store-demo-manifests
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
