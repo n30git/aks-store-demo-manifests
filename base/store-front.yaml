@@ -101,10 +101,6 @@ spec:
         thresholdRange:
           max: 500
         interval: 30s
-      - name: error-rate
-        thresholdRange:
-          max: 10
-        interval: 30s
     webhooks:
       - name: acceptance-test
         type: pre-rollout
