@@ -97,7 +97,7 @@ spec:
         thresholdRange:
           min: 99
         interval: 1m
-      - name: istio_request_duration_seconds_bucket
+      - name: istio_request_duration_milliseconds_bucket
         thresholdRange:
           max: 500
         interval: 30s
