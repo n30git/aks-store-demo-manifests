@@ -74,7 +74,7 @@ kind: Canary
 metadata:
   name: store-front
   annotations:
-    prometheus.io/scrape: true
+    prometheus.io/scrape: "true"
 spec:
   targetRef:
     apiVersion: apps/v1
