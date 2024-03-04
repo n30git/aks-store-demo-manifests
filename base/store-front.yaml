@@ -73,6 +73,8 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: store-front
+  annotations:
+    prometheus.io/scrape: true
 spec:
   targetRef:
     apiVersion: apps/v1
@@ -108,9 +110,9 @@ spec:
         timeout: 60s
         metadata:
           type: bash
-          cmd: "curl -s http://aks-istio-ingressgateway-external.aks-istio-ingress"
+          cmd: "curl -s http://store-front-canary.dev"
       - name: load-test
         url: http://flagger-loadtester.dev/
         timeout: 5s
         metadata:
-          cmd: "hey -z 1m -q 10 -c 2 http://aks-istio-ingressgateway-external.aks-istio-ingress"
+          cmd: "hey -z 1m -q 10 -c 2 http://store-front-canary.dev"
