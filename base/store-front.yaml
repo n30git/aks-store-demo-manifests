@@ -95,14 +95,13 @@ spec:
     maxWeight: 20
     stepWeight: 10
     metrics:
-      - name: istio_requests_total
+      - name: "404s percentage"
+        templateRef:
+          name: not-found-percentage
+          namespace: istio-system
         thresholdRange:
-          min: 99
+          max: 5
         interval: 2m
-      - name: istio_request_duration_milliseconds_bucket
-        thresholdRange:
-          max: 500
-        interval: 30s
     webhooks:
       - name: acceptance-test
         type: pre-rollout
