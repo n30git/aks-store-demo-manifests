@@ -95,12 +95,9 @@ spec:
     maxWeight: 20
     stepWeight: 10
     metrics:
-      - name: "404s percentage"
-        templateRef:
-          name: not-found-percentage
-          namespace: aks-istio-system
+      - name: request-success-rate
         thresholdRange:
-          max: 5
+          min: 99
         interval: 2m
     webhooks:
       - name: acceptance-test
