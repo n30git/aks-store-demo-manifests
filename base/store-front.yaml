@@ -73,8 +73,6 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: store-front
-  annotations:
-    prometheus.io/scrape: "true"
 spec:
   targetRef:
     apiVersion: apps/v1
@@ -90,18 +88,23 @@ spec:
     gateways:
       - store-front
   analysis:
-    interval: 2m
+    interval: 1m
     threshold: 10
     maxWeight: 20
     stepWeight: 10
     metrics:
-      - name: "404s percentage"
-        templateRef:
-          name: not-found-percentage
-          namespace: aks-istio-system
+      - name: request-success-rate
         thresholdRange:
-          max: 5
-        interval: 2m
+          min: 99
+        interval: 1m
+      - name: request-duration
+        thresholdRange:
+          max: 500
+        interval: 30s
+      - name: error-rate
+        thresholdRange:
+          max: 10
+        interval: 30s
     webhooks:
       - name: acceptance-test
         type: pre-rollout
