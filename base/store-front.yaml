@@ -67,7 +67,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "109.95.142.127/32"
+        - "*"
 ---
 apiVersion: flagger.app/v1beta1
 kind: Canary
